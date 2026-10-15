@@ -1,4 +1,4 @@
-"""Build the 1.1.0 native plugin and portable kit without changing installed caches."""
+"""Build the native plugin and portable kit without changing installed caches."""
 from pathlib import Path
 import hashlib
 import json
@@ -10,7 +10,7 @@ import yaml
 BASE = Path(__file__).resolve().parents[1]
 ROOT = BASE
 OUT = BASE / "dist"
-VERSION = "1.1.1"
+VERSION = "1.1.2"
 POINTER = "Перед применением прочитай [правила интеграции «Блог с нуля»](../../context/10-blog-runtime.md). Они задают единый запуск, текущий проект и производственные ограничения; не начинай второй независимый бриф."
 UPSTREAM = "8683dd9c8022b84c081647ca71a498b0e17ea552"
 
@@ -42,7 +42,7 @@ def inline_text(text):
     return re.sub(r"\[([^\]]+)\]\((?!https?://|#)[^)]+\)", r"\1 (включено ниже либо доступно в полном пакете)", text)
 
 def portable_guide():
-    intro = """# Блог с нуля · переносимое руководство 1.1.1
+    intro = """# Блог с нуля · переносимое руководство 1.1.2
 
 Издатель: INMI Digital (основатель midi). Инструмент команды midi.film, полностью бесплатный. Прикрепите этот файл для работы в текущем чате.
 Команда: «Помоги мне начать блог. Начни с вопросов».
@@ -113,7 +113,7 @@ def build():
     portable_guide()
     names = validate()
     OUT.mkdir(exist_ok=True)
-    native = OUT / f"blog-from-zero-{VERSION}.zip"
+    native = OUT / f"blog-creator-{VERSION}.zip"
     with zipfile.ZipFile(native, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for file in files_for_package():
             archive.write(file, file.relative_to(ROOT).as_posix())
@@ -146,11 +146,13 @@ def build():
         "public_install_link": "not_published"
     }
     (OUT / "validation-report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
+    shutil.copy2(native, OUT / "blog-creator.zip")
+    # Preserve links already shared with users while adopting the new download name.
     shutil.copy2(native, OUT / "blog-from-zero.zip")
     shutil.copy2(kit, OUT / "blog-from-zero-kit.zip")
     for name in ["START-BLOG.md", "INSTALL.md"]:
         shutil.copy2(ROOT / name, OUT / name)
-    download_names = ["blog-from-zero.zip", "blog-from-zero-kit.zip", "START-BLOG.md", "INSTALL.md"]
+    download_names = ["blog-creator.zip", "blog-from-zero.zip", "blog-from-zero-kit.zip", "START-BLOG.md", "INSTALL.md"]
     checksums = [hashlib.sha256((OUT / name).read_bytes()).hexdigest() + '  ' + name for name in download_names]
     (OUT / 'SHA256SUMS.txt').write_text('\n'.join(checksums)+'\n', encoding='utf-8')
     print(json.dumps(report, ensure_ascii=False, indent=2))

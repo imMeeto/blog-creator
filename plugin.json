@@ -29,7 +29,7 @@
       "onboardingSkill": "./skills/blog-start/SKILL.md",
       "publication": {
         "countries": [],
-        "release_notes": "1.1.1: Public distribution package for INMI Digital, founded by midi. Adds verified repository links, publisher documentation, licensing and a Claude marketplace. Includes 54 skills, midi.film onboarding and a portable guide.",
+        "release_notes": "1.1.2: Replaces the plugin icon with the original INMI Digital logo and renames the main download to blog-creator.zip. Existing plugin identity and 54 skills are preserved.",
         "translations": {
           "ru-RU": {
             "subtitle": "От идеи до контента и воронки",
@@ -58,7 +58,7 @@
     "midi.film"
   ],
   "name": "blog-from-zero",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "homepage": "https://github.com/imMeeto/blog-creator",
   "repository": "https://github.com/imMeeto/blog-creator",
   "license": "Apache-2.0"

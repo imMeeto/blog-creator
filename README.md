@@ -13,12 +13,12 @@
 
 **[Открыть последний релиз](https://github.com/imMeeto/blog-creator/releases/latest)**
 
-- [Нативный плагин ZIP](https://github.com/imMeeto/blog-creator/releases/latest/download/blog-from-zero.zip) — для поддерживаемой установки в ChatGPT, Claude и Codex.
+- [Нативный плагин ZIP](https://github.com/imMeeto/blog-creator/releases/latest/download/blog-creator.zip) — для поддерживаемой установки в ChatGPT, Claude и Codex.
 - [Полный комплект ZIP](https://github.com/imMeeto/blog-creator/releases/latest/download/blog-from-zero-kit.zip) — плагин, руководство и инструкция.
 - [START-BLOG.md](https://github.com/imMeeto/blog-creator/releases/latest/download/START-BLOG.md) — для работы прямо в чате.
 - [Инструкция установки](INSTALL.md).
 
-При установке используйте **blog-from-zero.zip**; общий kit — пакет для передачи человеку, а не архив одного плагина.
+При установке используйте **blog-creator.zip**; общий kit — пакет для передачи человеку, а не архив одного плагина. Старый адрес blog-from-zero.zip сохраняется для ранее разосланных ссылок.
 
 ## ChatGPT
 

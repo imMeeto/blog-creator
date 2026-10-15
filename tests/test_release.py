@@ -36,12 +36,12 @@ class ReleaseTests(unittest.TestCase):
             self.assertEqual(file.read_text(encoding="utf-8").count(module.POINTER), 1)
 
     def test_native_archive_contains_one_plugin(self):
-        with zipfile.ZipFile(module.OUT / "blog-from-zero-1.1.1.zip") as archive:
+        with zipfile.ZipFile(module.OUT / f"blog-creator-{module.VERSION}.zip") as archive:
             names = archive.namelist()
             self.assertIn("plugin.json", names)
             self.assertNotIn(".claude-plugin/marketplace.json", names)
             self.assertEqual(archive.testzip(), None)
-            self.assertEqual(json.loads(archive.read("plugin.json"))["version"], "1.1.1")
+            self.assertEqual(json.loads(archive.read("plugin.json"))["version"], module.VERSION)
             self.assertNotIn("brands/midifilm/", "\n".join(names))
 
     def test_portable_guide_is_self_contained_for_core(self):

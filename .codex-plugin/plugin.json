@@ -27,7 +27,7 @@
       },
       "publication": {
         "countries": [],
-        "release_notes": "1.1.1: Public distribution package for INMI Digital, founded by midi. Adds verified repository links, publisher documentation, licensing and a Claude marketplace. Includes 54 skills, midi.film onboarding and a portable guide.",
+        "release_notes": "1.1.2: Replaces the plugin icon with the original INMI Digital logo and renames the main download to blog-creator.zip. Existing plugin identity and 54 skills are preserved.",
         "translations": {
           "ru-RU": {
             "subtitle": "От идеи до контента и воронки",
@@ -38,7 +38,7 @@
     }
   },
   "name": "blog-from-zero",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Плагин команды midi.film: пошаговый запуск блога и 45 дополнительных навыков для контента, съёмки, дизайна, аналитики, воронок и продаж.",
   "author": {
     "email": "midi.collab@gmail.com",
