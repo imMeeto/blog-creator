@@ -1,0 +1,13 @@
+{
+  "name": "blog-from-zero",
+  "version": "1.1.1",
+  "description": "Плагин команды midi.film: пошаговый запуск блога и 45 дополнительных навыков для контента, съёмки, дизайна, аналитики, воронок и продаж.",
+  "author": {
+    "email": "midi.collab@gmail.com",
+    "name": "INMI Digital"
+  },
+  "homepage": "https://github.com/imMeeto/blog-creator",
+  "skills": "./skills/",
+  "repository": "https://github.com/imMeeto/blog-creator",
+  "license": "Apache-2.0"
+}

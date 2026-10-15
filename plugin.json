@@ -1,0 +1,65 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "email": "midi.collab@gmail.com",
+    "name": "INMI Digital"
+  },
+  "description": "Плагин команды midi.film: пошаговый запуск блога и 45 дополнительных навыков для контента, съёмки, дизайна, аналитики, воронок и продаж.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [],
+        "category": "Productivity",
+        "defaultPrompt": [
+          "Помоги создать мой блог с нуля. Начни с распаковки и предложи голосовой ответ.",
+          "Продолжи мой блог по приложенному паспорту проекта.",
+          "Подготовь сценарии текущей недели и проверь понятность каждого хука."
+        ],
+        "developerName": "INMI Digital",
+        "displayName": "Блог с нуля",
+        "longDescription": "Blog from Zero is a free skills-only plugin published by INMI Digital, founded by midi, with workflows from the midi.film team. It helps authors move from direction and topics to scripts, funnels and sales. Its 54 skills cover audience research, content planning, production, visuals, analytics and automation. It welcomes users briefly and accepts voice or text when the host supports it. The plugin respects the author's real equipment, reference photos and project decisions. It contains no payment processing or publisher-hosted data collection. Installation, external tools and availability depend on the selected platform. It can also be used through a portable guide within a chat session.",
+        "shortDescription": "From ideas to a working blog",
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.png",
+        "websiteURL": "https://github.com/imMeeto/blog-creator/blob/main/README.md",
+        "supportURL": "https://github.com/imMeeto/blog-creator/blob/main/docs/SUPPORT.md",
+        "privacyPolicyURL": "https://github.com/imMeeto/blog-creator/blob/main/docs/PRIVACY.md",
+        "termsOfServiceURL": "https://github.com/imMeeto/blog-creator/blob/main/docs/TERMS.md"
+      },
+      "onboardingSkill": "./skills/blog-start/SKILL.md",
+      "publication": {
+        "countries": [],
+        "release_notes": "1.1.1: Public distribution package for INMI Digital, founded by midi. Adds verified repository links, publisher documentation, licensing and a Claude marketplace. Includes 54 skills, midi.film onboarding and a portable guide.",
+        "translations": {
+          "ru-RU": {
+            "subtitle": "От идеи до контента и воронки",
+            "description": "Плагин команды midi.film помогает пройти путь от направления и тем до сценариев, воронки и продаж. Включает 54 навыка: 15-этапный маршрут запуска блога и библиотеку контента, производства, дизайна, аналитики и автоматизации. Начинает с короткого приветствия и вопросов, принимает голос или текст по возможностям среды, сохраняет ограничения проекта. Работает без сервера; установка и инструменты зависят от платформы."
+          }
+        }
+      },
+      "review": {
+        "commerce": false,
+        "commerce_description": "The plugin is completely free. It contains no in-plugin purchases, payment processing or paid subscription. Third-party AI platforms may charge their own fees."
+      }
+    }
+  },
+  "keywords": [
+    "blog",
+    "content",
+    "creator",
+    "marketing",
+    "research",
+    "reels",
+    "youtube",
+    "production",
+    "design",
+    "analytics",
+    "funnel",
+    "midi.film"
+  ],
+  "name": "blog-from-zero",
+  "version": "1.1.1",
+  "homepage": "https://github.com/imMeeto/blog-creator",
+  "repository": "https://github.com/imMeeto/blog-creator",
+  "license": "Apache-2.0"
+}

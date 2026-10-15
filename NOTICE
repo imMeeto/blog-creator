@@ -1,0 +1,9 @@
+Блог с нуля / Blog from Zero
+Издатель: INMI Digital, основатель midi. Команда midi.film.
+
+В пакет включена адаптированная библиотека imMeeto/midi-skills (content-producer 1.0.1),
+commit 8683dd9c8022b84c081647ca71a498b0e17ea552.
+Исходник: https://github.com/imMeeto/midi-skills
+Лицензия библиотеки: MIT, полный текст в LICENSE.midi-skills.
+Адаптация: кавычки YAML-описаний и ссылка на общие правила blog-from-zero.
+Исходные методики и дополнительные материалы сохранены.

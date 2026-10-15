@@ -1,0 +1,20 @@
+{
+  "name": "blog-creator",
+  "owner": {
+    "name": "INMI Digital",
+    "url": "https://github.com/imMeeto"
+  },
+  "metadata": {
+    "description": "Блог с нуля от команды midi.film",
+    "version": "1.1.1"
+  },
+  "plugins": [
+    {
+      "name": "blog-from-zero",
+      "source": "./",
+      "description": "Плагин команды midi.film: пошаговый запуск блога и 45 дополнительных навыков для контента, съёмки, дизайна, аналитики, воронок и продаж.",
+      "version": "1.1.1",
+      "category": "marketing"
+    }
+  ]
+}

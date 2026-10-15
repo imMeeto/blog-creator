@@ -1,0 +1,4 @@
+interface:
+  display_name: "Сценарии на неделю"
+  short_description: "YouTube, хайлайтс и раскадровки коротких видео"
+  default_prompt: "Используй $blog-scripts для моего блога."
