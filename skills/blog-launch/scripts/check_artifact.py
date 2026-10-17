@@ -11,7 +11,7 @@ def check_state(data):
     errors = []
     if not isinstance(data, dict):
         return ["State must be an object"]
-    statuses = {"intake", "in_progress", "awaiting_decision", "awaiting_topic_approval",
+    statuses = {"intake", "in_progress", "awaiting_input", "blocked", "awaiting_decision", "awaiting_topic_approval",
                 "awaiting_week_approval", "week_approved", "complete", "paused"}
     if not isinstance(data.get("status"), str) or data["status"] not in statuses:
         errors.append("Unknown status")
@@ -59,6 +59,74 @@ def check_state(data):
             if not scenes or not all(isinstance(s, dict) and
                     all(s.get(k) for k in ("number", "visual", "voice")) for s in scenes):
                 errors.append(f"Script {script['id']} has no complete scenes")
+    workflow = data.get("workflow")
+    if workflow is not None:
+        if not isinstance(workflow, dict):
+            errors.append("workflow must be an object")
+        else:
+            if workflow.get("scope") is not None and (not isinstance(workflow["scope"], str) or workflow["scope"] not in {"launch", "growth", "task"}):
+                errors.append("Unknown workflow scope")
+            if not isinstance(workflow.get("launch_status"), str) or workflow["launch_status"] not in {"not_started", "preparing", "ready_to_publish", "published"}:
+                errors.append("Unknown launch status")
+            if workflow.get("launch_status") == "published":
+                evidence = workflow.get("publication_evidence")
+                if not isinstance(evidence, dict) or not isinstance(evidence.get("ref"), str) or not evidence["ref"].strip() or not evidence.get("confirmed_at"):
+                    errors.append("Published status has no publication evidence")
+            occupied = set()
+            for field in ("completed_stages", "skipped_stages"):
+                records = workflow.get(field, [])
+                if not isinstance(records, list):
+                    errors.append(f"{field} must be an array")
+                    continue
+                for record in records:
+                    stage = record.get("stage") if isinstance(record, dict) else None
+                    if type(stage) is not int or not 1 <= stage <= 15:
+                        errors.append("Recorded stage must be from 1 to 15")
+                        continue
+                    if stage in occupied:
+                        errors.append(f"Stage {stage} recorded more than once")
+                    occupied.add(stage)
+                    if field == "completed_stages":
+                        refs = record.get("artifact_refs")
+                        if not isinstance(refs, list) or not refs or not all(isinstance(r, str) and r.strip() for r in refs):
+                            errors.append(f"Stage {stage} has no result references")
+                    elif not isinstance(record.get("reason"), str) or not record["reason"].strip():
+                        errors.append(f"Skipped stage {stage} has no reason")
+            if data.get("status") in {"awaiting_input", "blocked"} and not (
+                data.get("pending_questions") or workflow.get("blockers")
+            ):
+                errors.append("Waiting state has no question or blocker")
+            artifacts = workflow.get("artifacts", [])
+            if not isinstance(artifacts, list):
+                errors.append("artifacts must be an array")
+                artifacts = []
+            if data.get("status") == "complete" and not any(
+                isinstance(a, dict) and a.get("checked") is True and
+                isinstance(a.get("ref"), str) and a["ref"].strip() for a in artifacts
+            ):
+                errors.append("Completed scope has no checked deliverable")
+            if not isinstance(data.get("next_action"), str) or not data["next_action"].strip():
+                errors.append("Guided workflow needs a concrete next_action")
+    research = data.get("research")
+    if research is not None:
+        if not isinstance(research, dict):
+            errors.append("research must be an object")
+        elif not isinstance(research.get("status"), str) or research["status"] not in {"not_started", "in_progress", "completed", "partial", "unavailable"}:
+            errors.append("Unknown research status")
+        elif research.get("status") == "completed":
+            refs = research.get("source_ids")
+            sources = data.get("sources", [])
+            indexed = {s.get("id"): s for s in sources if isinstance(s, dict) and isinstance(s.get("id"), str)} if isinstance(sources, list) else {}
+            if not research.get("checked_at") or not isinstance(refs, list) or not refs:
+                errors.append("Completed research needs a check date and sources")
+            else:
+                from urllib.parse import urlparse
+                for ref in refs:
+                    source = indexed.get(ref, {}) if isinstance(ref, str) else {}
+                    url = source.get("url")
+                    parsed = urlparse(url) if isinstance(url, str) else None
+                    if not parsed or parsed.scheme not in {"http", "https"} or not parsed.netloc or not source.get("checked_at"):
+                        errors.append("Research source is missing, undated or has no valid URL")
     return errors
 
 

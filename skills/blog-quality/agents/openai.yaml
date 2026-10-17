@@ -2,3 +2,5 @@ interface:
   display_name: "Проверка контента"
   short_description: "Факты, понятность, голос автора и живой текст"
   default_prompt: "Используй $blog-quality для моего блога."
+policy:
+  allow_implicit_invocation: true

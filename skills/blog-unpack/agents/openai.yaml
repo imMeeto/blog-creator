@@ -2,3 +2,5 @@ interface:
   display_name: "Распаковка автора"
   short_description: "Сильные стороны, ниша, архетип и голос автора"
   default_prompt: "Используй $blog-unpack для моего блога."
+policy:
+  allow_implicit_invocation: true

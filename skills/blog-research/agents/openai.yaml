@@ -2,3 +2,5 @@ interface:
   display_name: "Исследование аудитории"
   short_description: "Источники, карта болей и портрет аудитории"
   default_prompt: "Используй $blog-research для моего блога."
+policy:
+  allow_implicit_invocation: true

@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0.0",
+  "schema_version": "1.1.0",
   "project_id": null,
   "author": null,
   "mode": null,
@@ -28,5 +28,23 @@
   "scripts": [],
   "approvals": [],
   "pending_questions": [],
+  "workflow": {
+    "scope": null,
+    "mode": "guided",
+    "current_task": null,
+    "completed_stages": [],
+    "skipped_stages": [],
+    "artifacts": [],
+    "blockers": [],
+    "launch_status": "not_started",
+    "publication_evidence": null
+  },
+  "research": {
+    "status": "not_started",
+    "question": null,
+    "checked_at": null,
+    "source_ids": [],
+    "gaps": []
+  },
   "next_action": "collect_initial_answers"
 }

@@ -27,15 +27,25 @@ HUB/TRUST: темы, IDs, ревизии, согласование
 Следующий шаг:
 ```
 
+При сопровождении сохранять также объём задачи (полный запуск / рост / один материал), выполненные результаты и причины отложенных этапов, препятствия, статус «подготовлено / опубликовано», ближайшее действие агента и один нужный ответ автора. Не показывать весь технический JSON новичку на каждом ходе: достаточно короткого понятного прогресса.
+
 Реестр фактов: `F001 | утверждение | источник (ответ/файл/URL) | дата | границы`. «Пользователь сообщил» не равно внешней проверке. Не менять уровень доказательности при стилистических правках.
 
 ## Машиночитаемое состояние
 
-Взять [шаблон](../assets/project-state.example.json). Заполнить известное; неизвестное — `null`/пустой массив. Статусы: `intake`, `in_progress`, `awaiting_decision`, `awaiting_topic_approval`, `awaiting_week_approval`, `week_approved`, `complete`, `paused`. Этап 1–15; неделя 1–4 по умолчанию; ревизия — положительное целое.
+Взять [шаблон](../assets/project-state.example.json), schema_version=1.1.0. Старые паспорта 1.0.0 сохраняют решения и дополняются новыми полями, без повторной распаковки. Заполнить известное; неизвестное — `null`/пустой массив. Статусы: `intake`, `in_progress`, `awaiting_input`, `blocked`, `awaiting_decision`, `awaiting_topic_approval`, `awaiting_week_approval`, `week_approved`, `complete`, `paused`. Этап 1–15; неделя 1–4 по умолчанию; ревизия — положительное целое. paused — только по просьбе пользователя.
+
+`workflow.scope`: launch / growth / task или null до выяснения. `mode=guided` — агент выбирает внутренние шаги. `completed_stages`: записи `{stage, artifact_refs}` с непустыми ссылками на реальные результаты (путь файла или конкретный блок сообщения), не список обещаний. `skipped_stages`: `{stage, reason}` для неприменимых/отложенных задач. Один этап не может быть одновременно завершён и пропущен. `artifacts`: `{id, ref, checked}` — реестр выданных результатов с фактическим статусом проверки. `blockers` — конкретные зависимости; `current_task` — ближайшая работа. `launch_status`: not_started / preparing / ready_to_publish / published. Последний статус возможен только с фактическим подтверждением публикации в facts или sources.
+
+`publication_evidence` в workflow: null до публикации, затем `{ref, confirmed_at}` с реальным URL/ссылкой на сообщение автора или результат инструмента и датой подтверждения. Не создавать такую запись на основании плана.
+
+`research`: status=not_started / in_progress / completed / partial / unavailable, question, checked_at, source_ids, gaps. completed требует даты и реальных source_ids, найденных в sources с id, абсолютным URL и checked_at. При частичном доступе использовать partial и назвать gaps; при отсутствии веба — unavailable. Карта гипотез не меняет статус на completed. Весь реестр источников остаётся в sources и в паспорте.
+
+next_action — конкретное действие из текущего положения, не «спросить, какой навык вызвать». awaiting_input/blocked должны объясняться pending_questions либо workflow.blockers. complete означает завершение согласованного объёма с выданными проверенными артефактами, а не автоматическое достижение клиентских продаж. Подготовка к публикации не равна публикации.
 
 Сценарий: `id, week, revision, topic_id, pain_ids, content_bucket, goal, hook, payoff, cta, facts, scenes, status`. Сцена: `number, visual, voice`. Решение: `kind, target, revision, user_text, recorded_at`. Переход недели требует `kind=week`, `target=N` и утверждения актуальной ревизии. При правке ревизия увеличивается, старая запись не разрешает переход.
 
-`intake → in_progress → awaiting_decision → in_progress`. YouTube: `awaiting_topic_approval → in_progress` после выбора. Неделя: `in_progress → awaiting_week_approval → week_approved → in_progress(week+1)`. Отказ/молчание не переход. Выполненное не генерировать повторно без причины.
+`intake → in_progress → awaiting_input/awaiting_decision → in_progress`. Внутренний готовый шаг переводит агента к следующему без отдельного одобрения. YouTube: `awaiting_topic_approval → in_progress` после выбора. Неделя: `in_progress → awaiting_week_approval → week_approved → подготовка съёмки/публикации → in_progress(week+1)`. Отказ/молчание не переход. При blocked продолжать независимую работу и назвать конкретное действие, снимающее блок. Выполненное не генерировать повторно без причины.
 
 Не сохранять токены, пароли, платёжные реквизиты, избыточные персональные данные и полные чужие ветки. Не затирать другие проекты. Актуальный подтверждённый файл важнее устаревших фраз чата; важный конфликт решений уточнить.
 

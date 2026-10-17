@@ -1,0 +1,6 @@
+interface:
+  display_name: Блог с нуля · начать
+  short_description: Знакомство, карта пути и сопровождение запуска блога
+  default_prompt: Используй $blog-start, чтобы начать мой блог и вести меня по шагам.
+policy:
+  allow_implicit_invocation: true

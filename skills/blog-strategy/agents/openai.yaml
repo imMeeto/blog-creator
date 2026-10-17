@@ -2,3 +2,5 @@ interface:
   display_name: "Контент и темы"
   short_description: "Пропорции контента, темы Reels и YouTube"
   default_prompt: "Используй $blog-strategy для моего блога."
+policy:
+  allow_implicit_invocation: true

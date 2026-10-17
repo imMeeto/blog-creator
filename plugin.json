@@ -4,7 +4,7 @@
     "email": "midi.collab@gmail.com",
     "name": "INMI Digital"
   },
-  "description": "Плагин команды midi.film: пошаговый запуск блога и 45 дополнительных навыков для контента, съёмки, дизайна, аналитики, воронок и продаж.",
+  "description": "Агент команды midi.film: сам подбирает навыки, исследует аудиторию и ведёт новичка от направления блога до сценариев, подготовки публикаций и разбора результатов.",
   "extensions": {
     "com.openai": {
       "interface": {
@@ -17,7 +17,7 @@
         ],
         "developerName": "INMI Digital",
         "displayName": "Блог с нуля",
-        "longDescription": "Blog from Zero is a free skills-only plugin published by INMI Digital, founded by midi, with workflows from the midi.film team. It helps authors move from direction and topics to scripts, funnels and sales. Its 54 skills cover audience research, content planning, production, visuals, analytics and automation. It welcomes users briefly and accepts voice or text when the host supports it. The plugin respects the author's real equipment, reference photos and project decisions. It contains no payment processing or publisher-hosted data collection. Installation, external tools and availability depend on the selected platform. It can also be used through a portable guide within a chat session.",
+        "longDescription": "Blog from Zero is a free guided agent from INMI Digital, founded by midi, with workflows from the midi.film team. Its 54 skills help beginners move from their experience and goals to audience research, topics, scripts, production, publication preparation and analysis of actual results. The agent selects and applies relevant skills itself, runs web research when needed and available, keeps project decisions and starts the next unblocked step. The first greeting shows a short roadmap and offers voice or text supported by the host. Optional products and funnels support authors seeking income. Real approvals, tool availability and permissions still apply; it does not run in the background or claim an unpublished item is live. No payment processing or publisher-hosted data collection. A portable guide supports session-only use.",
         "shortDescription": "From ideas to a working blog",
         "logo": "./assets/icon.png",
         "composerIcon": "./assets/icon.png",
@@ -29,11 +29,11 @@
       "onboardingSkill": "./skills/blog-start/SKILL.md",
       "publication": {
         "countries": [],
-        "release_notes": "1.1.2: Replaces the plugin icon with the original INMI Digital logo and renames the main download to blog-creator.zip. Existing plugin identity and 54 skills are preserved.",
+        "release_notes": "1.2.0: Adds a guided agent loop, automatic skill routing and web-research triggers, a beginner-friendly greeting roadmap, evidence-based progress tracking and post-script production support. Preserves 54 skills and plugin identity.",
         "translations": {
           "ru-RU": {
             "subtitle": "От идеи до контента и воронки",
-            "description": "Плагин команды midi.film помогает пройти путь от направления и тем до сценариев, воронки и продаж. Включает 54 навыка: 15-этапный маршрут запуска блога и библиотеку контента, производства, дизайна, аналитики и автоматизации. Начинает с короткого приветствия и вопросов, принимает голос или текст по возможностям среды, сохраняет ограничения проекта. Работает без сервера; установка и инструменты зависят от платформы."
+            "description": "Агент команды midi.film ведёт новичка от опыта и интересов до направления, аудитории, тем, сценариев, подготовки съёмки и публикаций. Сам выбирает из 54 навыков, запускает веб-исследование при необходимости и наличии инструментов, сохраняет решения и начинает следующий доступный шаг. При старте показывает краткую карту пути, предлагает голос или текст. Продажи и воронка добавляются под цель автора. Без веба честно использует гипотезы, не выдаёт подготовку за публикацию и не работает в фоне."
           }
         }
       },
@@ -58,7 +58,7 @@
     "midi.film"
   ],
   "name": "blog-from-zero",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "homepage": "https://github.com/imMeeto/blog-creator",
   "repository": "https://github.com/imMeeto/blog-creator",
   "license": "Apache-2.0"

@@ -2,3 +2,5 @@ interface:
   display_name: "Блог с нуля"
   short_description: "Пошаговый запуск блога и сохранение прогресса"
   default_prompt: "Используй $blog-launch для моего блога."
+policy:
+  allow_implicit_invocation: true

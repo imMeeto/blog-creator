@@ -10,7 +10,7 @@ import yaml
 BASE = Path(__file__).resolve().parents[1]
 ROOT = BASE
 OUT = BASE / "dist"
-VERSION = "1.1.2"
+VERSION = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))["version"]
 POINTER = "Перед применением прочитай [правила интеграции «Блог с нуля»](../../context/10-blog-runtime.md). Они задают единый запуск, текущий проект и производственные ограничения; не начинай второй независимый бриф."
 UPSTREAM = "8683dd9c8022b84c081647ca71a498b0e17ea552"
 
@@ -42,17 +42,20 @@ def inline_text(text):
     return re.sub(r"\[([^\]]+)\]\((?!https?://|#)[^)]+\)", r"\1 (включено ниже либо доступно в полном пакете)", text)
 
 def portable_guide():
-    intro = """# Блог с нуля · переносимое руководство 1.1.2
+    intro = """# Блог с нуля · переносимое руководство {version}
 
 Издатель: INMI Digital (основатель midi). Инструмент команды midi.film, полностью бесплатный. Прикрепите этот файл для работы в текущем чате.
 Команда: «Помоги мне начать блог. Начни с вопросов».
 Если ZIP плагина доступен и среда умеет устанавливать его, инициируй поддерживаемую установку. Если нет — используй это руководство в сессии.
 Это руководство содержит основной 15-этапный маршрут. 45 дополнительных cp-навыков доступны только когда их файлы из полного пакета действительно предоставлены среде; не утверждай, что прочитал отсутствующие навыки.
 
-"""
+""".format(version=VERSION)
     parts = [intro]
-    for path in ["skills/blog-start/SKILL.md", "context/10-blog-runtime.md", "skills/blog-launch/SKILL.md"]:
+    for path in ["skills/blog-start/SKILL.md", "context/10-blog-runtime.md", "context/12-agent-loop.md", "skills/blog-launch/SKILL.md"]:
         parts.append(inline_text((ROOT / path).read_text(encoding="utf-8")))
+    for file in sorted((ROOT / "skills").glob("blog-*/SKILL.md")):
+        if file.parent.name not in {"blog-start", "blog-launch"}:
+            parts.append("# Навык " + file.parent.name + "\n\n" + inline_text(file.read_text(encoding="utf-8")))
     parts.append("## Дополнительные возможности полного пакета\n\n" + inline_text((ROOT / "context/11-blog-routing.md").read_text(encoding="utf-8")))
     for file in sorted((ROOT / "skills/blog-launch/references").glob("*.md")):
         parts.append(inline_text(file.read_text(encoding="utf-8")))

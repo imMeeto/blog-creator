@@ -2,3 +2,5 @@ interface:
   display_name: "Продукты и профиль"
   short_description: "Лид-магниты, цены, кодовые слова и упаковка"
   default_prompt: "Используй $blog-products для моего блога."
+policy:
+  allow_implicit_invocation: true

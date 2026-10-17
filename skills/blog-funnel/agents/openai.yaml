@@ -2,3 +2,5 @@ interface:
   display_name: "Воронка и боты"
   short_description: "Mermaid, логика выдачи, оплаты и тексты ботов"
   default_prompt: "Используй $blog-funnel для моего блога."
+policy:
+  allow_implicit_invocation: true
