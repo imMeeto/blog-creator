@@ -1,6 +1,6 @@
 # Карта встроенных возможностей
 
-Всего 54 навыка: исходные 8 blog-*, 45 из imMeeto/midi-skills и blog-start. Управляющий маршрут — blog-launch; расширения включаются под конкретную задачу.
+Исходные 54 навыка дополнены специальным навыком reels-storyboard-method для сценариев и раскадровок. Управляющий маршрут — blog-launch; расширения включаются под конкретную задачу.
 
 Навыки сам выбирает и применяет агент по [рабочему циклу](12-agent-loop.md). После результата переходи к ближайшей незавершённой задаче и передавай готовый результат следующему навыку. Показывай пользователю понятную работу, а не меню из 54 команд. Чтение общей инструкции из дочернего навыка не запускает ещё один диспетчер.
 
@@ -11,8 +11,8 @@
 | Голос автора | cp-voice, cp-humanizer |
 | Исследование и аудит | blog-research, cp-audit, cp-trends |
 | Стратегия, темы, календарь | blog-strategy, cp-content-plan, cp-calendar |
-| Хуки, короткие и длинные сценарии | blog-scripts, cp-hook, cp-script-short, cp-script-long |
-| Съёмка, раскадровка, монтаж | cp-production, cp-clip, cp-platform-fit |
+| Хуки, короткие и длинные сценарии | blog-scripts, reels-storyboard-method, cp-hook, cp-script-short, cp-script-long |
+| Съёмка, раскадровка, монтаж | reels-storyboard-method, cp-production, cp-clip, cp-platform-fit |
 | Визуал и готовые PNG | cp-design-system, cp-image-prompt, cp-cover, cp-carousel, cp-carousel-render |
 | Посты, подписи, истории, производные | cp-caption, cp-stories, cp-telegram, cp-vk, cp-dzen, cp-repurpose |
 | Продукт, оффер, лид-магнит | blog-products, cp-offer, cp-lead-magnet |
