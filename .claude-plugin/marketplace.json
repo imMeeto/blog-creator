@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Блог с нуля от команды midi.film",
-    "version": "1.3.0"
+    "version": "1.4.0"
   },
   "plugins": [
     {
       "name": "blog-from-zero",
       "source": "./",
       "description": "Агент команды midi.film: сам подбирает навыки, исследует аудиторию и ведёт новичка от направления блога до сценариев, подготовки публикаций и разбора результатов.",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "category": "marketing"
     }
   ]

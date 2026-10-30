@@ -1,0 +1,433 @@
+{
+  "schema_version": "1.0.0",
+  "method_version": "1.4.0",
+  "checked_at": "2026-10-30",
+  "source": {
+    "url": "https://www.youtube.com/watch?v=yq7eQO108QU",
+    "video_id": "yq7eQO108QU",
+    "title": "Как с 0 дойти до 10.000 подписчиков? — четкие 10 шагов",
+    "channel": "Александра Митрошина",
+    "speakers": [
+      "Миша Тимочко",
+      "Саша Митрошина"
+    ],
+    "published_at": "2026-09-03",
+    "duration_seconds": 8174
+  },
+  "evidence": {
+    "transcript": {
+      "language": "ru",
+      "kind": "automatic_captions",
+      "segments": 3826,
+      "first_start_seconds": 0.16,
+      "last_end_seconds": 8173.239,
+      "read_entire_text": true,
+      "sha256": "358eacc76630e216a8739a687dbf4c97e28dd06618ab314d44c8edaad6e18956"
+    },
+    "visual_review": {
+      "mode": "sampled_frames",
+      "timestamps_seconds": [
+        870,
+        930,
+        1540,
+        2890,
+        3210,
+        3525,
+        3585,
+        3620,
+        3670,
+        3700,
+        4780,
+        4820,
+        4955,
+        5015,
+        5050,
+        5100,
+        5180,
+        5250,
+        5500,
+        5760,
+        5970,
+        7080,
+        7230,
+        7330
+      ],
+      "continuous_frame_review": false
+    },
+    "case_claims_independently_verified": false,
+    "limitations": [
+      "Автоматические субтитры содержат ошибки распознавания.",
+      "Визуальная проверка выборочная, не сплошной просмотр каждого кадра.",
+      "Исторические цены, доступность сервисов и правила не подтверждены на текущую дату.",
+      "Заявления о доходе, конверсии и причинности не являются независимыми исследованиями."
+    ]
+  },
+  "distribution": {
+    "raw_transcript_included": false,
+    "video_frames_included": false,
+    "method_text": "independent_operational_paraphrase",
+    "attribution_policy": "No unsolicited speaker names or promotions in normal workflows; truthful source disclosure when explicitly asked."
+  },
+  "chapters": [
+    {
+      "start_seconds": 0,
+      "end_seconds": 133,
+      "topic": "Предварительный обзор обещаний и кейсов",
+      "handling": "context",
+      "implementation_refs": [
+        "context/producer-method/00-orchestrator.md"
+      ],
+      "decision": "Рекламные обещания не стали гарантией результата."
+    },
+    {
+      "start_seconds": 133,
+      "end_seconds": 165,
+      "topic": "Знакомство участников",
+      "handling": "context",
+      "implementation_refs": [
+        "context/producer-method/README.md"
+      ],
+      "decision": "Имена сохранены только в происхождении, не в пользовательском сопровождении."
+    },
+    {
+      "start_seconds": 165,
+      "end_seconds": 300,
+      "topic": "Изменения бизнеса и модели выручки",
+      "handling": "context",
+      "implementation_refs": [
+        "context/producer-method/05-sales-system.md"
+      ],
+      "decision": "Подписка и запуски различаются по обязательствам; показатели — заявления спикера."
+    },
+    {
+      "start_seconds": 300,
+      "end_seconds": 414,
+      "topic": "Органическое привлечение и стоимость производства",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/04-production-and-learning.md"
+      ],
+      "decision": "Отсутствие рекламного бюджета не означает отсутствие затрат."
+    },
+    {
+      "start_seconds": 414,
+      "end_seconds": 439,
+      "topic": "Почему одного доступа к короткому видео мало",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/00-orchestrator.md"
+      ],
+      "decision": "Нужна система решений, а не обещание доступной всем вирусности."
+    },
+    {
+      "start_seconds": 439,
+      "end_seconds": 561,
+      "topic": "Неудачная серия с дорогой подготовкой",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/04-production-and-learning.md"
+      ],
+      "decision": "Качество оформления не заменяет нужную мысль и проверку."
+    },
+    {
+      "start_seconds": 561,
+      "end_seconds": 601,
+      "topic": "Количество публикаций без улучшения",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/04-production-and-learning.md"
+      ],
+      "decision": "Объём сам по себе не является критерием успеха."
+    },
+    {
+      "start_seconds": 601,
+      "end_seconds": 652,
+      "topic": "Индивидуальный результат отдельных роликов",
+      "handling": "context",
+      "implementation_refs": [
+        "context/producer-method/04-production-and-learning.md"
+      ],
+      "decision": "Приток подписчиков из кейса не универсальный прогноз."
+    },
+    {
+      "start_seconds": 652,
+      "end_seconds": 702,
+      "topic": "Поиск способа работы и команды",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/02-content-and-ideas.md"
+      ],
+      "decision": "Разбирать механизмы и совершенствовать свой формат; дорогая команда необязательна."
+    },
+    {
+      "start_seconds": 702,
+      "end_seconds": 784,
+      "topic": "Пакетная съёмка по расписанию",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/04-production-and-learning.md"
+      ],
+      "decision": "Посильный устойчивый блок вместо обязательной нормы выпусков."
+    },
+    {
+      "start_seconds": 784,
+      "end_seconds": 860,
+      "topic": "Влияние накопленного бренда",
+      "handling": "context",
+      "implementation_refs": [
+        "context/producer-method/04-production-and-learning.md"
+      ],
+      "decision": "Результат известного автора нельзя переносить на нулевой аккаунт."
+    },
+    {
+      "start_seconds": 860,
+      "end_seconds": 1084,
+      "topic": "Эксперимент с синтетическим персонажем",
+      "handling": "context",
+      "implementation_refs": [
+        "context/producer-method/00-orchestrator.md"
+      ],
+      "decision": "Сохранена идея наблюдаемого эксперимента, исключена ложная биография и скрытая подмена человека."
+    },
+    {
+      "start_seconds": 1084,
+      "end_seconds": 1359,
+      "topic": "Привычки, цель и календарь",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/01-positioning.md"
+      ],
+      "decision": "Шаг 1: результат, действия, горизонт и конкретные окна работы."
+    },
+    {
+      "start_seconds": 1359,
+      "end_seconds": 2271,
+      "topic": "Основа стратегии и выбор направления",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/01-positioning.md"
+      ],
+      "decision": "Шаг 2: десять полей, тема, интерес, подтверждённый опыт, ёмкость и выбор площадки; историческая реклама книги не обязательна."
+    },
+    {
+      "start_seconds": 2271,
+      "end_seconds": 2866,
+      "topic": "Личные причины откладывать и мотивация",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/01-positioning.md"
+      ],
+      "decision": "Шаг 3: конкретное опасение, правдивая трактовка, личный смысл, маленькая проверка."
+    },
+    {
+      "start_seconds": 2866,
+      "end_seconds": 3390,
+      "topic": "Роли материалов и связь с подпиской",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/02-content-and-ideas.md"
+      ],
+      "decision": "Шаг 4: полезное, личное, охватное, продающее; смешанные роли; доли как гипотеза."
+    },
+    {
+      "start_seconds": 3390,
+      "end_seconds": 3833,
+      "topic": "Выбор способа рассказать и показать",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/02-content-and-ideas.md"
+      ],
+      "decision": "Шаг 5: речь, разбор, voiceover, сценка, динамичная раскадровка, упрощённое начало."
+    },
+    {
+      "start_seconds": 3833,
+      "end_seconds": 3966,
+      "topic": "Собственная фактура вместо пересъёмки",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/02-content-and-ideas.md"
+      ],
+      "decision": "Шаг 6: авторский смысл и отделение копирования от разбора механизма."
+    },
+    {
+      "start_seconds": 3966,
+      "end_seconds": 4028,
+      "topic": "Ветки предметных тем",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/02-content-and-ideas.md"
+      ],
+      "decision": "Расширение банка, затем содержательная проверка ИИ-вариантов."
+    },
+    {
+      "start_seconds": 4028,
+      "end_seconds": 4301,
+      "topic": "Последовательность задач аудитории",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/02-content-and-ideas.md"
+      ],
+      "decision": "Путь A → B, трудности каждого шага; применимо к хобби и товарам."
+    },
+    {
+      "start_seconds": 4301,
+      "end_seconds": 4451,
+      "topic": "Отдельно потребность и помеха решению",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/02-content-and-ideas.md"
+      ],
+      "decision": "Два списка, фактура клиентов и проверка гипотез."
+    },
+    {
+      "start_seconds": 4451,
+      "end_seconds": 4644,
+      "topic": "Механизм интереса чужого успешного материала",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/02-content-and-ideas.md"
+      ],
+      "decision": "Новая собственная история; генерация и отбор разнесены."
+    },
+    {
+      "start_seconds": 4644,
+      "end_seconds": 4761,
+      "topic": "Обещание, развитие, ответ и действие",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/03-script-workshop.md"
+      ],
+      "decision": "Шаг 7: структура и приоритет смыслового сценария без псевдоточности 80%."
+    },
+    {
+      "start_seconds": 4761,
+      "end_seconds": 4955,
+      "topic": "История как вход в полезный разбор",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/03-script-workshop.md"
+      ],
+      "decision": "Личная фактура и поворот вместо скучного объявления кейса."
+    },
+    {
+      "start_seconds": 4955,
+      "end_seconds": 5025,
+      "topic": "Предметная аналогия",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/03-script-workshop.md"
+      ],
+      "decision": "Наглядный мост к сложному понятию, не самостоятельное доказательство."
+    },
+    {
+      "start_seconds": 5025,
+      "end_seconds": 5065,
+      "topic": "Честное нарушение ожиданий",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/03-script-workshop.md"
+      ],
+      "decision": "Провокация связана с последующей мыслью."
+    },
+    {
+      "start_seconds": 5065,
+      "end_seconds": 5173,
+      "topic": "Узнавание себя в действиях",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/03-script-workshop.md"
+      ],
+      "decision": "Ситуация раньше абстрактного объяснения."
+    },
+    {
+      "start_seconds": 5173,
+      "end_seconds": 5453,
+      "topic": "Безопасное неожиданное начало и импровизация",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/03-script-workshop.md"
+      ],
+      "decision": "Абсурд; в промежуточном разговоре добавлен внешний известный контекст — восьмой механизм."
+    },
+    {
+      "start_seconds": 5453,
+      "end_seconds": 5636,
+      "topic": "Реальное действие с неизвестным итогом",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/03-script-workshop.md"
+      ],
+      "decision": "Эксперимент, сериал и условия проверки; пример результата не присваивается автору."
+    },
+    {
+      "start_seconds": 5636,
+      "end_seconds": 5785,
+      "topic": "Проверяемая неожиданная информация",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/03-script-workshop.md"
+      ],
+      "decision": "Факт и сравнение хуков для разных задач; примеры из импровизации не биография пользователя."
+    },
+    {
+      "start_seconds": 5785,
+      "end_seconds": 6042,
+      "topic": "Текстовый разбор референсов и связь с кадрами",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/03-script-workshop.md"
+      ],
+      "decision": "Структурное упражнение, свои факты, инструменты только по фактической доступности."
+    },
+    {
+      "start_seconds": 6042,
+      "end_seconds": 7306,
+      "topic": "Девять проверок качества и разбор критики",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/03-script-workshop.md"
+      ],
+      "decision": "Шаг 8: широта, предметность, польза, контекст, подача, начало, удержание, наглядность, продолжение; конфликт только реальный."
+    },
+    {
+      "start_seconds": 7306,
+      "end_seconds": 7448,
+      "topic": "Организация производства",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/04-production-and-learning.md"
+      ],
+      "decision": "Шаг 9: подготовка, расписание, телефон, простая сборка снятых кадров."
+    },
+    {
+      "start_seconds": 7448,
+      "end_seconds": 7974,
+      "topic": "Путь доверия к подходящей покупке",
+      "handling": "method",
+      "implementation_refs": [
+        "context/producer-method/05-sales-system.md"
+      ],
+      "decision": "Шаг 10: регулярное место общения, глубина, понятное предложение; исключение срочных услуг; просмотры не уникальные люди."
+    },
+    {
+      "start_seconds": 7974,
+      "end_seconds": 8035,
+      "topic": "Повтор логики и границы обзора",
+      "handling": "context",
+      "implementation_refs": [
+        "context/producer-method/00-orchestrator.md"
+      ],
+      "decision": "Выпуск обзорный; он не заменяет книгу, результаты не гарантированы."
+    },
+    {
+      "start_seconds": 8035,
+      "end_seconds": 8174,
+      "topic": "Предложение стороннего продукта и завершение",
+      "handling": "promotion",
+      "implementation_refs": [
+        "context/producer-method/README.md"
+      ],
+      "decision": "Не включать в пользовательский маршрут цены, дефицит, промокоды и покупку продукта спикеров."
+    }
+  ]
+}

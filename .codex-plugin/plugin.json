@@ -23,7 +23,7 @@
       "onboardingSkill": "./skills/blog-start/SKILL.md",
       "publication": {
         "countries": [],
-        "release_notes": "1.3.0: Adds reels-storyboard-method: seven Reels formats, eight hook types, three hook candidates, shootable visuals and Text | Shot storyboards. Includes 55 skills and a synchronized portable guide; validates package versions and release checksums.",
+        "release_notes": "1.4.0: Adds an always-loaded producing guide and detailed strategy, content, script, production, analytics and sales references with timestamped source coverage. Keeps all 55 skills and neutral user-facing attribution.",
         "translations": {
           "ru-RU": {
             "subtitle": "От идеи до контента и воронки",
@@ -38,7 +38,7 @@
     }
   },
   "name": "blog-from-zero",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Агент команды midi.film: сам подбирает навыки, исследует аудиторию и ведёт новичка от направления блога до сценариев, подготовки публикаций и разбора результатов.",
   "author": {
     "email": "midi.collab@gmail.com",
