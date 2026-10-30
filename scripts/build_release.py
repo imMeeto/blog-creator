@@ -54,6 +54,9 @@ def portable_guide_text():
     parts = [intro]
     for path in ["skills/blog-start/SKILL.md", "context/10-blog-runtime.md", "context/12-agent-loop.md", "skills/blog-launch/SKILL.md"]:
         parts.append(inline_text((ROOT / path).read_text(encoding="utf-8")))
+    # Include the complete operational method, keeping source attribution in the package reference.
+    for file in sorted((ROOT / "context/producer-method").glob("[0-9][0-9]-*.md")):
+        parts.append(inline_text(file.read_text(encoding="utf-8")))
     core_skills = sorted((ROOT / "skills").glob("blog-*/SKILL.md"))
     core_skills.append(ROOT / "skills/reels-storyboard-method/SKILL.md")
     for file in core_skills:
@@ -62,6 +65,7 @@ def portable_guide_text():
     parts.append("## Дополнительные возможности полного пакета\n\n" + inline_text((ROOT / "context/11-blog-routing.md").read_text(encoding="utf-8")))
     for file in sorted((ROOT / "skills/blog-launch/references").glob("*.md")):
         parts.append(inline_text(file.read_text(encoding="utf-8")))
+    parts.append("# Происхождение базовой методики\n\nВнутренний первоисточник: https://www.youtube.com/watch?v=yq7eQO108QU . Рабочие разделы выше — самостоятельная адаптация; обычное сопровождение не рекламирует спикеров. Прочитана вся автоматическая расшифровка; визуально проверены выбранные кадры. Кейсы не проверены независимо. Подробная карта и заметки доступны в context/producer-method полного пакета.")
     parts.append("# Шаблон состояния\n\n```json\n" + (ROOT / "skills/blog-launch/assets/project-state.example.json").read_text(encoding="utf-8") + "\n```")
     parts.append("# Пример воронки\n\n```mermaid\n" + (ROOT / "skills/blog-launch/assets/funnel.example.mmd").read_text(encoding="utf-8") + "\n```")
     return "\n\n---\n\n".join(parts) + "\n"
@@ -107,6 +111,21 @@ def validate():
         names.append(front["name"])
     assert len(names) == len(set(names)) == EXPECTED_SKILL_COUNT
     assert "reels-storyboard-method" in names
+    source = json.loads((ROOT / "context/producer-method/source-map.json").read_text(encoding="utf-8"))
+    chapters = source["chapters"]
+    assert chapters[0]["start_seconds"] == 0
+    assert chapters[-1]["end_seconds"] == source["source"]["duration_seconds"]
+    for index, chapter in enumerate(chapters):
+        assert chapter["start_seconds"] < chapter["end_seconds"]
+        if index:
+            assert chapters[index-1]["end_seconds"] == chapter["start_seconds"]
+        assert chapter["implementation_refs"]
+        for ref in chapter["implementation_refs"]:
+            resolved = (ROOT / ref).resolve()
+            assert resolved.is_relative_to(ROOT.resolve()), ref
+            assert resolved.is_file(), ref
+            assert resolved in {p.resolve() for p in files_for_package()}, ref
+    assert source["method_version"] == VERSION
     # Check authored and upstream relative Markdown resources against the exact package.
     for file in [p for p in files_for_package() if p.suffix == '.md']:
         for link in re.findall(r"\[[^\]]+\]\(([^)]+)\)", file.read_text(encoding="utf-8")):
