@@ -11,6 +11,7 @@ BASE = Path(__file__).resolve().parents[1]
 ROOT = BASE
 OUT = BASE / "dist"
 VERSION = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))["version"]
+EXPECTED_SKILL_COUNT = 55
 POINTER = "Перед применением прочитай [правила интеграции «Блог с нуля»](../../context/10-blog-runtime.md). Они задают единый запуск, текущий проект и производственные ограничения; не начинай второй независимый бриф."
 UPSTREAM = "8683dd9c8022b84c081647ca71a498b0e17ea552"
 
@@ -41,7 +42,7 @@ def inline_text(text):
     # The standalone guide cannot depend on local paths.
     return re.sub(r"\[([^\]]+)\]\((?!https?://|#)[^)]+\)", r"\1 (включено ниже либо доступно в полном пакете)", text)
 
-def portable_guide():
+def portable_guide_text():
     intro = """# Блог с нуля · переносимое руководство {version}
 
 Издатель: INMI Digital (основатель midi). Инструмент команды midi.film, полностью бесплатный. Прикрепите этот файл для работы в текущем чате.
@@ -53,7 +54,9 @@ def portable_guide():
     parts = [intro]
     for path in ["skills/blog-start/SKILL.md", "context/10-blog-runtime.md", "context/12-agent-loop.md", "skills/blog-launch/SKILL.md"]:
         parts.append(inline_text((ROOT / path).read_text(encoding="utf-8")))
-    for file in sorted((ROOT / "skills").glob("blog-*/SKILL.md")):
+    core_skills = sorted((ROOT / "skills").glob("blog-*/SKILL.md"))
+    core_skills.append(ROOT / "skills/reels-storyboard-method/SKILL.md")
+    for file in core_skills:
         if file.parent.name not in {"blog-start", "blog-launch"}:
             parts.append("# Навык " + file.parent.name + "\n\n" + inline_text(file.read_text(encoding="utf-8")))
     parts.append("## Дополнительные возможности полного пакета\n\n" + inline_text((ROOT / "context/11-blog-routing.md").read_text(encoding="utf-8")))
@@ -61,7 +64,10 @@ def portable_guide():
         parts.append(inline_text(file.read_text(encoding="utf-8")))
     parts.append("# Шаблон состояния\n\n```json\n" + (ROOT / "skills/blog-launch/assets/project-state.example.json").read_text(encoding="utf-8") + "\n```")
     parts.append("# Пример воронки\n\n```mermaid\n" + (ROOT / "skills/blog-launch/assets/funnel.example.mmd").read_text(encoding="utf-8") + "\n```")
-    (ROOT / "START-BLOG.md").write_text("\n\n---\n\n".join(parts) + "\n", encoding="utf-8")
+    return "\n\n---\n\n".join(parts) + "\n"
+
+def portable_guide():
+    (ROOT / "START-BLOG.md").write_text(portable_guide_text(), encoding="utf-8")
 
 def files_for_package():
     roots = {"skills", "context", "assets", "docs", "qa"}
@@ -75,8 +81,14 @@ def validate():
     manifest = json.loads((ROOT / "plugin.json").read_text(encoding="utf-8"))
     legacy = json.loads((ROOT / ".codex-plugin/plugin.json").read_text(encoding="utf-8"))
     claude = json.loads((ROOT / ".claude-plugin/plugin.json").read_text(encoding="utf-8"))
+    marketplace = json.loads((ROOT / ".claude-plugin/marketplace.json").read_text(encoding="utf-8"))
     assert manifest["name"] == legacy["name"] == claude["name"] == "blog-from-zero"
     assert manifest["version"] == legacy["version"] == claude["version"] == VERSION
+    assert marketplace["metadata"]["version"] == VERSION
+    assert len(marketplace["plugins"]) == 1
+    assert marketplace["plugins"][0]["name"] == manifest["name"]
+    assert marketplace["plugins"][0]["version"] == VERSION
+    assert marketplace["plugins"][0]["source"] == "./"
     assert manifest["$schema"] == "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
     interface = manifest["extensions"]["com.openai"]["interface"]
     assert len(interface["shortDescription"]) <= 30
@@ -93,7 +105,8 @@ def validate():
         assert isinstance(front["description"], str) and front["description"].strip()
         assert file.stat().st_size <= 1024*1024
         names.append(front["name"])
-    assert len(names) == len(set(names)) == 54
+    assert len(names) == len(set(names)) == EXPECTED_SKILL_COUNT
+    assert "reels-storyboard-method" in names
     # Check authored and upstream relative Markdown resources against the exact package.
     for file in [p for p in files_for_package() if p.suffix == '.md']:
         for link in re.findall(r"\[[^\]]+\]\(([^)]+)\)", file.read_text(encoding="utf-8")):
@@ -123,7 +136,7 @@ def build():
     with zipfile.ZipFile(native) as archive:
         assert "plugin.json" in archive.namelist()
         assert ".claude-plugin/plugin.json" in archive.namelist()
-        assert len([p for p in archive.namelist() if re.match(r"skills/[^/]+/SKILL.md$", p)]) == 54
+        assert len([p for p in archive.namelist() if re.match(r"skills/[^/]+/SKILL.md$", p)]) == EXPECTED_SKILL_COUNT
         assert not any("marketplace.json" in p for p in archive.namelist())
         assert archive.testzip() is None
     kit = OUT / f"blog-from-zero-kit-{VERSION}.zip"
