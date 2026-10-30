@@ -17,7 +17,7 @@
         ],
         "developerName": "INMI Digital",
         "displayName": "Блог с нуля",
-        "longDescription": "Blog from Zero is a free guided agent from INMI Digital, founded by midi, with workflows from the midi.film team. Its 54 skills help beginners move from their experience and goals to audience research, topics, scripts, production, publication preparation and analysis of actual results. The agent selects and applies relevant skills itself, runs web research when needed and available, keeps project decisions and starts the next unblocked step. The first greeting shows a short roadmap and offers voice or text supported by the host. Optional products and funnels support authors seeking income. Real approvals, tool availability and permissions still apply; it does not run in the background or claim an unpublished item is live. No payment processing or publisher-hosted data collection. A portable guide supports session-only use.",
+        "longDescription": "Blog from Zero is a free guided agent from INMI Digital, founded by midi, with workflows from the midi.film team. Its 55 skills help beginners move from their experience and goals to audience research, topics, scripts, production, publication preparation and analysis of actual results. The agent selects and applies relevant skills itself, runs web research when needed and available, keeps project decisions and starts the next unblocked step. The first greeting shows a short roadmap and offers voice or text supported by the host. Optional products and funnels support authors seeking income. Real approvals, tool availability and permissions still apply; it does not run in the background or claim an unpublished item is live. No payment processing or publisher-hosted data collection. A portable guide supports session-only use.",
         "shortDescription": "From ideas to a working blog",
         "logo": "./assets/icon.png",
         "composerIcon": "./assets/icon.png",
@@ -29,11 +29,11 @@
       "onboardingSkill": "./skills/blog-start/SKILL.md",
       "publication": {
         "countries": [],
-        "release_notes": "1.2.0: Adds a guided agent loop, automatic skill routing and web-research triggers, a beginner-friendly greeting roadmap, evidence-based progress tracking and post-script production support. Preserves 54 skills and plugin identity.",
+        "release_notes": "1.3.0: Introduces a dedicated Reels storyboarding method grounded in 33 supplied references: 7 narrative archetypes, 8 hook types, shot-by-shot Text | Frame scripts, shooting feasibility, fact checks and flexible pacing. Keeps existing agent workflows and 55 skills.",
         "translations": {
           "ru-RU": {
             "subtitle": "От идеи до контента и воронки",
-            "description": "Агент команды midi.film ведёт новичка от опыта и интересов до направления, аудитории, тем, сценариев, подготовки съёмки и публикаций. Сам выбирает из 54 навыков, запускает веб-исследование при необходимости и наличии инструментов, сохраняет решения и начинает следующий доступный шаг. При старте показывает краткую карту пути, предлагает голос или текст. Продажи и воронка добавляются под цель автора. Без веба честно использует гипотезы, не выдаёт подготовку за публикацию и не работает в фоне."
+            "description": "Агент команды midi.film ведёт новичка от опыта и интересов до направления, аудитории, тем, сценариев, подготовки съёмки и публикаций. Сам выбирает из 55 навыков, запускает веб-исследование при необходимости и наличии инструментов, сохраняет решения и начинает следующий доступный шаг. При старте показывает краткую карту пути, предлагает голос или текст. Продажи и воронка добавляются под цель автора. Без веба честно использует гипотезы, не выдаёт подготовку за публикацию и не работает в фоне."
           }
         }
       },
@@ -58,7 +58,7 @@
     "midi.film"
   ],
   "name": "blog-from-zero",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "homepage": "https://github.com/imMeeto/blog-creator",
   "repository": "https://github.com/imMeeto/blog-creator",
   "license": "Apache-2.0"
